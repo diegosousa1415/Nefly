@@ -1,88 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Site Profissional</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌸 Vídeos Fofinhos</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .hero {
-      background: #111;
-      color: #fff;
-      padding: 50px 0;
-      text-align: center;
-    }
-    .hero h1 {
-      font-size: 3em;
-    }
-    .card {
-      margin-bottom: 20px;
-    }
-  </style>
+<style>
+body{
+  margin:0;
+  font-family: "Comic Sans MS", Arial, sans-serif;
+  background-image: url("https://images.unsplash.com/photo-1503264116251-35a269479413");
+  background-size: cover;
+  background-position: center;
+  min-height:100vh;
+  color:#fff;
+}
+
+/* camada escura pra leitura */
+.overlay{
+  background: rgba(0,0,0,0.55);
+  min-height:100vh;
+}
+
+header{
+  text-align:center;
+  padding:20px;
+  font-size:24px;
+  background: rgba(255,182,193,0.25);
+  backdrop-filter: blur(5px);
+}
+
+.container{
+  padding:15px;
+  max-width:500px;
+  margin:auto;
+}
+
+/* CAIXA FOFA */
+.card{
+  background: rgba(255,255,255,0.15);
+  border-radius:20px;
+  padding:15px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* INPUT */
+input{
+  width:100%;
+  padding:12px;
+  border-radius:15px;
+  border:none;
+  margin-bottom:12px;
+  font-size:16px;
+}
+
+/* BOTÕES FOFOS */
+.buttons{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+button{
+  flex:1;
+  min-width:120px;
+  padding:12px;
+  border:none;
+  border-radius:18px;
+  font-size:16px;
+  cursor:pointer;
+  background: linear-gradient(135deg,#ffb6c1,#dda0dd);
+  color:#000;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover{
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+/* PLAYER */
+iframe{
+  width:100%;
+  height:220px;
+  border-radius:20px;
+  border:none;
+  margin-top:15px;
+}
+
+/* TÍTULO FOFO */
+h2{
+  text-align:center;
+  margin-bottom:10px;
+}
+</style>
 </head>
+
 <body>
+<div class="overlay">
 
-<!-- SEÇÃO PRINCIPAL -->
-<section class="hero">
-  <h1>Bem-vindo ao Meu Site</h1>
-  <p>Este é um site criado para mostrar meus projetos ou serviços.</p>
-</section>
+<header>🌸 Cantinho Fofo de Vídeos 🌸</header>
 
-<!-- SEÇÃO SOBRE -->
-<section class="container my-5">
-  <h2>Sobre Mim</h2>
-  <p>Sou um criador de conteúdo/projetos e este site serve para apresentar meu trabalho ao mundo.</p>
-</section>
+<div class="container">
+  <div class="card">
+    <h2>🎀 Cole o link do YouTube</h2>
 
-<!-- MEUS PROJETOS / SERVIÇOS -->
-<section class="container my-5">
-  <h2>Meus Projetos</h2>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Projeto 1">
-        <div class="card-body">
-          <h5 class="card-title">Projeto 1</h5>
-          <p class="card-text">Descrição simples do projeto ou serviço.</p>
-        </div>
-      </div>
+    <input id="link" placeholder="https://www.youtube.com/watch?v=...">
+
+    <div class="buttons">
+      <button onclick="carregar()">🐰 Assistir</button>
+      <button onclick="lofi()">🎧 Lo-fi</button>
+      <button onclick="anime()">🌸 Anime</button>
     </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Projeto 2">
-        <div class="card-body">
-          <h5 class="card-title">Projeto 2</h5>
-          <p class="card-text">Descrição simples do projeto ou serviço.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="card">
-        <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Projeto 3">
-        <div class="card-body">
-          <h5 class="card-title">Projeto 3</h5>
-          <p class="card-text">Descrição simples do projeto ou serviço.</p>
-        </div>
-      </div>
-    </div>
+
+    <iframe id="player" allowfullscreen></iframe>
   </div>
-</section>
+</div>
 
-<!-- RODAPÉ -->
-<footer class="text-center py-4">
-  <p>© 2026 Meu Site Profissional — Todos os direitos reservados</p>
-</footer>
+</div>
 
-<!-- Bootstrap JS e dependências -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function carregar(){
+  let url = document.getElementById("link").value.trim();
+  if(!url) return alert("Cole um link 💖");
+
+  let id = "";
+
+  if(url.includes("watch?v=")){
+    id = url.split("watch?v=")[1].split("&")[0];
+  } else if(url.includes("youtu.be/")){
+    id = url.split("youtu.be/")[1].split("?")[0];
+  }
+
+  if(!id) return alert("Link inválido 😢");
+
+  document.getElementById("player").src =
+    "https://www.youtube.com/embed/" + id;
+}
+
+function lofi(){
+  document.getElementById("player").src =
+    "https://www.youtube.com/embed/jfKfPfyJRdk";
+}
+
+function anime(){
+  document.getElementById("player").src =
+    "https://www.youtube.com/embed/DWcJFNfaw9c";
+}
+</script>
 
 </body>
 </html>
-
-<head><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1666646379623602"
-     crossorigin="anonymous"></script></head>
