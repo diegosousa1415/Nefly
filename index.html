@@ -1,2 +1,77 @@
-<DOCTYPE html>
-  <html>oi </html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vídeos Fofos ✨</title>
+
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      font-family: Arial, sans-serif;
+      background: #000;
+    }
+
+    .video {
+      height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Bolinha fofa de pontos */
+    .pontos {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ff69b4;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(255,105,180,0.8);
+      z-index: 10;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="pontos">
+    ✨ Pontos: <span id="contador">0</span>
+  </div>
+
+  <!-- VIDEO 1 -->
+  <div class="video">
+    <iframe 
+      src="https://www.youtube.com/embed/VIDEO_ID_1?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID_1"
+      allow="autoplay; encrypted-media">
+    </iframe>
+  </div>
+
+  <!-- VIDEO 2 -->
+  <div class="video">
+    <iframe 
+      src="https://www.youtube.com/embed/VIDEO_ID_2?autoplay=1&mute=1&loop=1&playlist=VIDEO_ID_2"
+      allow="autoplay; encrypted-media">
+    </iframe>
+  </div>
+
+  <!-- VIDEO 3 -->
+  <div class="video">
