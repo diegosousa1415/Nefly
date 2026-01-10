@@ -78,3 +78,104 @@ dos usuários.
 </div>
 </body>
 </html>
+
+
+<body><style>
+  .videos-section {
+    margin-top: 40px;
+    padding: 20px;
+  }
+
+  .videos-title {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .videos-desc {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #555;
+  }
+
+  .videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+
+  .video-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s;
+  }
+
+  .video-card:hover {
+    transform: scale(1.03);
+  }
+
+  .video-card iframe {
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    border: none;
+  }
+
+  .video-title {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .emoji {
+    font-size: 18px;
+  }
+</style>
+
+<section class="videos-section">
+  <h2 class="videos-title">📚 Vídeos Educativos</h2>
+
+  <p class="videos-desc">
+    Aprenda com vídeos educativos sobre tecnologia, internet e conhecimento digital.
+    Conteúdo real, seguro e informativo.
+  </p>
+
+  <div class="videos-grid">
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/hdI2bqOjy3c" allowfullscreen></iframe>
+      <div class="video-title">
+        <span class="emoji">💻</span> O que é Programação?
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/7_LPdttKXPc" allowfullscreen></iframe>
+      <div class="video-title">
+        <span class="emoji">🌐</span> Como funciona a Internet
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/l7Uj3r3zE6E" allowfullscreen></iframe>
+      <div class="video-title">
+        <span class="emoji">📱</span> Tecnologia no dia a dia
+      </div>
+    </div>
+
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/1C6ZyZ57e7c" allowfullscreen></iframe>
+      <div class="video-title">
+        <span class="emoji">🧠</span> Educação Digital
+      </div>
+    </div>
+
+  </div>
+</section>
+</body>
